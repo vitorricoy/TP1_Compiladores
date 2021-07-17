@@ -7,7 +7,7 @@ LeitorArquivos::LeitorArquivos(std::string nomeArquivo) {
 }
 
 bool LeitorArquivos::arquivoLidoAteFim() {
-    return file_input.peek() == EOF;
+    return this->arquivo.eof();
 }
 
 std::string LeitorArquivos::obterProximaLinha() {

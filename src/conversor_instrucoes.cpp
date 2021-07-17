@@ -1,9 +1,10 @@
 #include <iostream>
+#include <vector>
 #include <string>
 
 #include "conversor_instrucoes.h"
 
-int converterOperando(std:string operando) {
+int Conversor::converterOperando(std::string operando) {
     if(operando == "R0") {
         return 0;
     }
@@ -25,114 +26,114 @@ int converterOperando(std:string operando) {
 
 std::vector<int> Conversor::converterInstrucao(std::vector<std::string> instrucao) {
     std::string mnemonico = instrucao[0];
-    vector<int> retorno;
+    std::vector<int> retorno;
     if(mnemonico == "HALT") {
         return {0};
     }
     
     if(mnemonico == "LOAD") {
-        retorno.pb(1);
-        retorno.pb(converterOperando(instrucao[1]));
-        retorno.pb(converterOperando(instrucao[2]));
+        retorno.push_back(1);
+        retorno.push_back(converterOperando(instrucao[1]));
+        retorno.push_back(converterOperando(instrucao[2]));
     }
 
     if(mnemonico == "STORE") {
-        retorno.pb(2);
-        retorno.pb(converterOperando(instrucao[1]));
-        retorno.pb(converterOperando(instrucao[2]));
+        retorno.push_back(2);
+        retorno.push_back(converterOperando(instrucao[1]));
+        retorno.push_back(converterOperando(instrucao[2]));
     }
 
     if(mnemonico == "READ") {
-        retorno.pb(3);
-        retorno.pb(converterOperando(instrucao[1]));
+        retorno.push_back(3);
+        retorno.push_back(converterOperando(instrucao[1]));
     }
 
     if(mnemonico == "WRITE") {
-        retorno.pb(4);
-        retorno.pb(converterOperando(instrucao[1]));
+        retorno.push_back(4);
+        retorno.push_back(converterOperando(instrucao[1]));
     }
 
     if(mnemonico == "COPY") {
-        retorno.pb(5);
-        retorno.pb(converterOperando(instrucao[1]));
-        retorno.pb(converterOperando(instrucao[2]));
+        retorno.push_back(5);
+        retorno.push_back(converterOperando(instrucao[1]));
+        retorno.push_back(converterOperando(instrucao[2]));
     }
 
     if(mnemonico == "PUSH") {
-        retorno.pb(6);
-        retorno.pb(converterOperando(instrucao[1]));
+        retorno.push_back(6);
+        retorno.push_back(converterOperando(instrucao[1]));
     }
 
     if(mnemonico == "POP") {
-        retorno.pb(7);
-        retorno.pb(converterOperando(instrucao[1]));
+        retorno.push_back(7);
+        retorno.push_back(converterOperando(instrucao[1]));
     }
 
     if(mnemonico == "ADD") {
-        retorno.pb(8);
-        retorno.pb(converterOperando(instrucao[1]));
-        retorno.pb(converterOperando(instrucao[2]));
+        retorno.push_back(8);
+        retorno.push_back(converterOperando(instrucao[1]));
+        retorno.push_back(converterOperando(instrucao[2]));
     }
 
     if(mnemonico == "SUB") {
-        retorno.pb(9);
-        retorno.pb(converterOperando(instrucao[1]));
-        retorno.pb(converterOperando(instrucao[2]));
+        retorno.push_back(9);
+        retorno.push_back(converterOperando(instrucao[1]));
+        retorno.push_back(converterOperando(instrucao[2]));
     }
 
     if(mnemonico == "MUL") {
-        retorno.pb(10);
-        retorno.pb(converterOperando(instrucao[1]));
-        retorno.pb(converterOperando(instrucao[2]));
+        retorno.push_back(10);
+        retorno.push_back(converterOperando(instrucao[1]));
+        retorno.push_back(converterOperando(instrucao[2]));
     }
 
     if(mnemonico == "DIV") {
-        retorno.pb(11);
-        retorno.pb(converterOperando(instrucao[1]));
-        retorno.pb(converterOperando(instrucao[2]));
+        retorno.push_back(11);
+        retorno.push_back(converterOperando(instrucao[1]));
+        retorno.push_back(converterOperando(instrucao[2]));
     }
 
     if(mnemonico == "MOD") {
-        retorno.pb(12);
-        retorno.pb(converterOperando(instrucao[1]));
-        retorno.pb(converterOperando(instrucao[2]));
+        retorno.push_back(12);
+        retorno.push_back(converterOperando(instrucao[1]));
+        retorno.push_back(converterOperando(instrucao[2]));
     }
 
     if(mnemonico == "AND") {
-        retorno.pb(13);
-        retorno.pb(converterOperando(instrucao[1]));
-        retorno.pb(converterOperando(instrucao[2]));
+        retorno.push_back(13);
+        retorno.push_back(converterOperando(instrucao[1]));
+        retorno.push_back(converterOperando(instrucao[2]));
     }
 
     if(mnemonico == "OR") {
-        retorno.pb(14);
-        retorno.pb(converterOperando(instrucao[1]));
-        retorno.pb(converterOperando(instrucao[2]));
+        retorno.push_back(14);
+        retorno.push_back(converterOperando(instrucao[1]));
+        retorno.push_back(converterOperando(instrucao[2]));
     }
 
     if(mnemonico == "NOT") {
-        retorno.pb(15);
-        retorno.pb(converterOperando(instrucao[1]));
+        retorno.push_back(15);
+        retorno.push_back(converterOperando(instrucao[1]));
     }
 
     if(mnemonico == "JUMP") {
-        retorno.pb(16);
-        retorno.pb(converterOperando(instrucao[1]));
+        retorno.push_back(16);
+        retorno.push_back(converterOperando(instrucao[1]));
     }
 
     if(mnemonico == "JZ") {
-        retorno.pb(17);
-        retorno.pb(converterOperando(instrucao[1]));
+        retorno.push_back(17);
+        retorno.push_back(converterOperando(instrucao[1]));
     }
 
     if(mnemonico == "JN") {
-        retorno.pb(18);
-        retorno.pb(converterOperando(instrucao[1]));
+        retorno.push_back(18);
+        retorno.push_back(converterOperando(instrucao[1]));
     }
 
     if(mnemonico == "CALL") {
-        retorno.pb(19);
-        retorno.pb(converterOperando(instrucao[1]));
+        retorno.push_back(19);
+        retorno.push_back(converterOperando(instrucao[1]));
     }
 
     if(mnemonico == "RET") {

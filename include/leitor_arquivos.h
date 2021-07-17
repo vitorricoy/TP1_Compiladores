@@ -1,8 +1,8 @@
 #ifndef LEITOR_ARQUIVOS_H
 #define LEITOR_ARQUIVOS_H
 
+#include <iostream>
 #include <fstream>
-#include <string>
 
 class LeitorArquivos {
     private:

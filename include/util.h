@@ -1,5 +1,8 @@
-#ifndef LEITOR_ARQUIVOS_H
-#define LEITOR_ARQUIVOS_H
+#ifndef UTIL_H
+#define UTIL_H
+
+#include <iostream>
+#include <vector>
 
 std::vector<std::string> separaPalavras(std::string linha);
 

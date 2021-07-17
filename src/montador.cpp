@@ -1,13 +1,14 @@
 #include <iostream>
-#include <string>
 #include <vector>
 
 #include "util.h"
 #include "montador.h"
+#include "leitor_arquivos.h"
+#include "tabela_simbolos.h"
 #include "conversor_instrucoes.h"
 
-Montador::Montador(std::string arquivoPrograma) {
-    this->leitorArquivos = new LeitorArquivos(arquivoPrograma);
+Montador::Montador(std::string arquivoPrograma): leitorArquivos(arquivoPrograma){
+
 }
 
 std::vector<std::vector<std::string>> Montador::executarPassoUm() {
@@ -30,7 +31,7 @@ std::vector<std::vector<std::string>> Montador::executarPassoUm() {
             palavras.erase(palavras.begin());
         }
 
-        for(int i=0; i<palavras.size(); i++) {
+        for(long unsigned i=0; i<palavras.size(); i++) {
             if(palavras[i] == "WORD") {
                 palavras.erase(palavras.begin() + i);
             }
@@ -50,7 +51,7 @@ std::vector<std::vector<std::string>> Montador::executarPassoUm() {
 
 std::vector<int> Montador::executarPassoDois(std::vector<std::vector<std::string> > tokens) {
     std::vector<int> resultadoFinal;
-    for(std::vector<std::string> linha : this->tokens) {
+    for(std::vector<std::string> linha : tokens) {
         std::vector<int> codigoMaquina = Conversor::converterInstrucao(linha);
         resultadoFinal.insert(resultadoFinal.end(), codigoMaquina.begin(), codigoMaquina.end());
     }
@@ -58,11 +59,11 @@ std::vector<int> Montador::executarPassoDois(std::vector<std::vector<std::string
 }
 
 std::string Montador::gerarPrograma(std::vector<int> instrucoes) {
-    string saida = "MV-EXE\n";
-    saida+=to_string(instrucoes.size());
+    std::string saida = "MV-EXE\n";
+    saida+=std::to_string(instrucoes.size());
     saida+=" 0 999 0\n";
     for(int inteiro : instrucoes) {
-        saida+=to_string(inteiro) + " ";
+        saida+=std::to_string(inteiro) + " ";
     }
     saida+= "\n";
     return saida;
