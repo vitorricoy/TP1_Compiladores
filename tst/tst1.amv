@@ -1,0 +1,39 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;; Programa que lê 5 números e imprime a mediana deles ;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+COPY R3 PC          ; Salva o valor de PC para ser usado para
+                    ; endereçar os dados da memória
+READ R0             ; Lê o inteiro x1 e armazena no registrador 0
+STORE R0 4          ; Guarda x1 na memória
+READ R0             ; Lê o inteiro x2 e armazena no registrador 0
+STORE R0 3          ; Guarda x2 na memória
+READ R0             ; Lê o inteiro x3 e armazena no registrador 0
+STORE R0 2          ; Guarda x3 na memória
+READ R0             ; Lê o inteiro x4 e armazena no registrador 0
+STORE R0 1          ; Guarda x4 na memória
+READ R0             ; Lê o inteiro x5 e armazena no registrador 0
+STORE R0 0          ; Guarda x5 na memória
+
+ADD R3 2            ; Atualiza o registrador que salva a posição
+                    ; da memória
+
+CALL passo_ordenacao
+CALL passo_ordenacao
+CALL passo_ordenacao
+CALL passo_ordenacao
+CALL passo_ordenacao
+
+
+
+
+passo_ordenacao: LOAD R0 const4
+inicio:
+
+
+JUMP inicio
+fim: RET
+
+const4: WORD 4
+END
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
