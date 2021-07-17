@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <utility>
 
 #include "util.h"
 #include "montador.h"
@@ -32,17 +33,15 @@ std::vector<std::vector<std::string>> Montador::executarPassoUm() {
 
         if(palavras[0].back() == ':') {
             if(palavras[1] == "WORD") {
-                tabelaSimbolos.salvarSimbolo(palavras[0].substr(0, palavras[0].size()-1), numeroLinha+1);
+                this->constantes.push_back({palavras[0].substr(0, palavras[0].size()-1)}, std::stoi(palavras.back()))
             } else {
                 tabelaSimbolos.salvarSimbolo(palavras[0].substr(0, palavras[0].size()-1), numeroLinha);
             }
             palavras.erase(palavras.begin());
         }
 
-        for(long unsigned i=0; i<palavras.size(); i++) {
-            if(palavras[i] == "WORD") {
-                palavras.erase(palavras.begin() + i);
-            }
+        if(palavras[0] == "WORD") {
+            continue;
         }
         
         if(palavras[0] == "END") {
@@ -64,6 +63,10 @@ std::vector<int> Montador::executarPassoDois(std::vector<std::vector<std::string
     for(std::vector<std::string> linha : tokens) {
         std::vector<int> codigoMaquina = Conversor::converterInstrucao(linha, this->tabelaSimbolos);
         resultadoFinal.insert(resultadoFinal.end(), codigoMaquina.begin(), codigoMaquina.end());
+    }
+    for(std::pair<std::string, int> constante : this->constantes) {
+        this->tabelaSimbolos.salvarSimbolo(constante.first, resultadoFinal.size());
+        resultadoFinal.pb(constante.second);
     }
     return resultadoFinal;
 }

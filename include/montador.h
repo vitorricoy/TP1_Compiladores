@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <vector>
+#include <utility>
 
 #include "leitor_arquivos.h"
 #include "tabela_simbolos.h"
@@ -11,6 +12,7 @@ class Montador {
     private:
         LeitorArquivos leitorArquivos;
         TabelaSimbolos tabelaSimbolos;
+        std::vector<std::pair<std::string, int> > constantes;
     public:
         Montador(std::string arquivoPrograma);
         std::vector<std::vector<std::string>> executarPassoUm();
