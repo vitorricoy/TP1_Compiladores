@@ -27,7 +27,11 @@ std::vector<std::vector<std::string>> Montador::executarPassoUm() {
         palavras = separaPalavras(linha);
 
         if(palavras[0].back() == ':') {
-            tabelaSimbolos.salvarSimbolo(palavras[0].substr(0, palavras[0].size()-1), numeroLinha);
+            if(palavras[1] == "WORD") {
+                tabelaSimbolos.salvarSimbolo(palavras[0].substr(0, palavras[0].size()-1), numeroLinha+1);
+            } else {
+                tabelaSimbolos.salvarSimbolo(palavras[0].substr(0, palavras[0].size()-1), numeroLinha);
+            }
             palavras.erase(palavras.begin());
         }
 
