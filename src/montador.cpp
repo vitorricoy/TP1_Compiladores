@@ -42,7 +42,9 @@ std::vector<std::vector<std::string>> Montador::executarPassoUm() {
         }
 
         numeroLinha += 1;
-
+        if(palavras[0] == "") {
+            continue;
+        }
         resultado.push_back(palavras);
     }
 
