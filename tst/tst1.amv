@@ -2,38 +2,133 @@
 ;;;;;;; Programa que lê 5 números e imprime a mediana deles ;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-COPY R3 PC          ; Salva o valor de PC para ser usado para
-                    ; endereçar os dados da memória
 READ R0             ; Lê o inteiro x1 e armazena no registrador 0
-STORE R0 4          ; Guarda x1 na memória
+STORE R0 100        ; Guarda x1 na memória
 READ R0             ; Lê o inteiro x2 e armazena no registrador 0
-STORE R0 3          ; Guarda x2 na memória
+STORE R0 101        ; Guarda x2 na memória
 READ R0             ; Lê o inteiro x3 e armazena no registrador 0
-STORE R0 2          ; Guarda x3 na memória
+STORE R0 102        ; Guarda x3 na memória
 READ R0             ; Lê o inteiro x4 e armazena no registrador 0
-STORE R0 1          ; Guarda x4 na memória
+STORE R0 103        ; Guarda x4 na memória
 READ R0             ; Lê o inteiro x5 e armazena no registrador 0
-STORE R0 0          ; Guarda x5 na memória
+STORE R0 104        ; Guarda x5 na memória
 
-ADD R3 2            ; Atualiza o registrador que salva a posição
-                    ; da memória
+LOAD R0 100
+LOAD R1 101
+SUB R0 R1
+JN menor1 ; Se for negativo (R0 < R1)
+ADD R0 R1
+STORE R1 101
+menor1:
+STORE R0 101
+COPY R0 R1
 
-CALL passo_ordenacao
-CALL passo_ordenacao
-CALL passo_ordenacao
-CALL passo_ordenacao
-CALL passo_ordenacao
+LOAD R0 101
+LOAD R1 102
+SUB R0 R1
+JN menor1 ; Se for negativo (R0 < R1)
+ADD R0 R1
+STORE R1 102
+menor1:
+STORE R0 102
+COPY R0 R1
 
+LOAD R0 102
+LOAD R1 103
+SUB R0 R1
+JN menor1 ; Se for negativo (R0 < R1)
+ADD R0 R1
+STORE R1 103
+menor1:
+STORE R0 103
+COPY R0 R1
 
+LOAD R0 103
+LOAD R1 104
+SUB R0 R1
+JN menor1 ; Se for negativo (R0 < R1)
+ADD R0 R1
+STORE R1 104
+menor1:
+STORE R0 104
+COPY R0 R1
 
+STORE R0 100
 
-passo_ordenacao: LOAD R0 const4
-inicio:
+;;;;;;;;
+LOAD R0 101
+LOAD R1 102
+SUB R0 R1
+JN menor1 ; Se for negativo (R0 < R1)
+ADD R0 R1
+STORE R1 102
+menor1:
+STORE R0 102
+COPY R0 R1
 
+LOAD R0 102
+LOAD R1 103
+SUB R0 R1
+JN menor1 ; Se for negativo (R0 < R1)
+ADD R0 R1
+STORE R1 103
+menor1:
+STORE R0 103
+COPY R0 R1
 
-JUMP inicio
-fim: RET
+LOAD R0 103
+LOAD R1 104
+SUB R0 R1
+JN menor1 ; Se for negativo (R0 < R1)
+ADD R0 R1
+STORE R1 104
+menor1:
+STORE R0 104
+COPY R0 R1
 
-const4: WORD 4
+STORE R0 101
+;;;;;
+
+LOAD R0 102
+LOAD R1 103
+SUB R0 R1
+JN menor1 ; Se for negativo (R0 < R1)
+ADD R0 R1
+STORE R1 103
+menor1:
+STORE R0 103
+COPY R0 R1
+
+LOAD R0 103
+LOAD R1 104
+SUB R0 R1
+JN menor1 ; Se for negativo (R0 < R1)
+ADD R0 R1
+STORE R1 104
+menor1:
+STORE R0 104
+COPY R0 R1
+
+STORE R0 102
+
+;;;;
+
+LOAD R0 103
+LOAD R1 104
+SUB R0 R1
+JN menor1 ; Se for negativo (R0 < R1)
+ADD R0 R1
+STORE R1 104
+menor1:
+STORE R0 104
+COPY R0 R1
+
+STORE R0 103
+;;;;
+
+LOAD R0 103
+
+WRITE R0
+
 END
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
