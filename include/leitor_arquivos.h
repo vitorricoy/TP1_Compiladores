@@ -13,6 +13,6 @@ class LeitorArquivos {
         bool arquivoLidoAteFim();
 
         std::string obterProximaLinha();
-}
+};
 
 #endif

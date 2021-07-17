@@ -13,6 +13,6 @@ class TabelaSimbolos {
         int obterValorSimbolo(std::string simbolo);
 
         void salvarSimbolo(std::string simbolo, int valor);
-}
+};
 
 #endif

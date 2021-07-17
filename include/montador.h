@@ -14,6 +14,6 @@ class Montador {
         void executarPassoUm();
         void executarPassoDois();
         void montarPrograma(std::string arquivoPrograma);
-}
+};
 
 #endif
