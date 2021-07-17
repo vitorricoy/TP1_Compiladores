@@ -8,6 +8,8 @@ class LeitorArquivos {
     private:
         std::ifstream arquivo;
     public:
+        ~LeitorArquivos();
+
         LeitorArquivos(std::string nomeArquivo);
 
         bool arquivoLidoAteFim();

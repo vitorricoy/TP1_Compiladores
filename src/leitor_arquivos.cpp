@@ -3,13 +3,19 @@
 #include "leitor_arquivos.h"
 
 LeitorArquivos::LeitorArquivos(std::string nomeArquivo) {
-    
+    this->arquivo.open(nomeArquivo);
 }
 
 bool LeitorArquivos::arquivoLidoAteFim() {
-    return false;
+    return file_input.peek() == EOF;
 }
 
 std::string LeitorArquivos::obterProximaLinha() {
-    return "";
+    std::string linha;
+    std::getline(this->arquivo, linha);
+    return linha;
+}
+
+LeitorArquivos::~LeitorArquivos() {
+    this->arquivo.close();
 }
