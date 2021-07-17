@@ -11,9 +11,9 @@ class Montador {
         LeitorArquivos leitorArquivos;
         TabelaSimbolos tabelaSimbolos;
     public:
+        void Montador(std::string arquivoPrograma);
         void executarPassoUm();
         void executarPassoDois();
-        void montarPrograma(std::string arquivoPrograma);
 };
 
 #endif
