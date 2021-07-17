@@ -24,8 +24,7 @@ menor1: ADD R0 R1
 STORE R0 201
 COPY R0 R1
 
-saida1: LOAD R0 201
-LOAD R1 202
+saida1: LOAD R1 202
 SUB R0 R1
 JN menor2 ; Se for negativo (R0 < R1)
 ADD R0 R1
@@ -35,8 +34,7 @@ menor2: ADD R0 R1
 STORE R0 202
 COPY R0 R1
 
-saida2: LOAD R0 202
-LOAD R1 203
+saida2: LOAD R1 203
 SUB R0 R1
 JN menor3 ; Se for negativo (R0 < R1)
 ADD R0 R1
@@ -46,8 +44,7 @@ menor3: ADD R0 R1
 STORE R0 203
 COPY R0 R1
 
-saida3: LOAD R0 203
-LOAD R1 204
+saida3: LOAD R1 204
 SUB R0 R1
 JN menor4 ; Se for negativo (R0 < R1)
 ADD R0 R1
@@ -71,8 +68,7 @@ menor5: ADD R0 R1
 STORE R0 202
 COPY R0 R1
 
-saida5: LOAD R0 202
-LOAD R1 203
+saida5: LOAD R1 203
 SUB R0 R1
 JN menor6 ; Se for negativo (R0 < R1)
 ADD R0 R1
@@ -82,8 +78,7 @@ menor6: ADD R0 R1
 STORE R0 203
 COPY R0 R1
 
-saida6: LOAD R0 203
-LOAD R1 204
+saida6: LOAD R1 204
 SUB R0 R1
 JN menor7 ; Se for negativo (R0 < R1)
 ADD R0 R1
@@ -107,8 +102,7 @@ menor8: ADD R0 R1
 STORE R0 203
 COPY R0 R1
 
-saida8: LOAD R0 203
-LOAD R1 204
+saida8: LOAD R1 204
 SUB R0 R1
 JN menor9 ; Se for negativo (R0 < R1)
 ADD R0 R1
