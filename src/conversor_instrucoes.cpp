@@ -5,7 +5,7 @@
 #include "conversor_instrucoes.h"
 #include "tabela_simbolos.h"
 
-int Conversor::converterOperando(std::string operando, TabelaSimbolos& tabela) {
+int Conversor::converterOperando(std::string operando, linhaAtual, TabelaSimbolos& tabela, int linhaAtual) {
     if(operando == "R0") {
         return 0;
     }
@@ -23,145 +23,167 @@ int Conversor::converterOperando(std::string operando, TabelaSimbolos& tabela) {
     }
 
     if(tabela.simboloEstaRegistrado(operando)) {
-        return tabela.obterValorSimbolo(operando);
+        return tabela.obterValorSimbolo(operando)-linhaAtual;
     }
     return stoi(operando); // Posição de memória
 }
 
-std::vector<int> Conversor::converterInstrucao(std::vector<std::string> instrucao, TabelaSimbolos& tabela) {
+std::vector<int> Conversor::converterInstrucao(std::vector<std::string> instrucao, TabelaSimbolos& tabela, int& linhaAtual) {
     std::string mnemonico = instrucao[0];
     std::vector<int> retorno;
     if(mnemonico == "HALT") {
+        linhaAtual+=1;
         return {0};
     }
     
     if(mnemonico == "LOAD") {
         retorno.push_back(1);
-        retorno.push_back(converterOperando(instrucao[1], tabela));
-        retorno.push_back(converterOperando(instrucao[2], tabela));
+        retorno.push_back(converterOperando(instrucao[1], tabela, linhaAtual));
+        retorno.push_back(converterOperando(instrucao[2], tabela, linhaAtual));
+        linhaAtual+=3;
         return retorno;
     }
 
     if(mnemonico == "STORE") {
         retorno.push_back(2);
-        retorno.push_back(converterOperando(instrucao[1], tabela));
-        retorno.push_back(converterOperando(instrucao[2], tabela));
+        retorno.push_back(converterOperando(instrucao[1], tabela, linhaAtual));
+        retorno.push_back(converterOperando(instrucao[2], tabela, linhaAtual));
+        linhaAtual+=3;
         return retorno;
     }
 
     if(mnemonico == "READ") {
         retorno.push_back(3);
-        retorno.push_back(converterOperando(instrucao[1], tabela));
+        retorno.push_back(converterOperando(instrucao[1], tabela, linhaAtual));
+        linhaAtual+=2;
         return retorno;
     }
 
     if(mnemonico == "WRITE") {
         retorno.push_back(4);
-        retorno.push_back(converterOperando(instrucao[1], tabela));
+        retorno.push_back(converterOperando(instrucao[1], tabela, linhaAtual));
+        linhaAtual+=2;
         return retorno;
     }
 
     if(mnemonico == "COPY") {
         retorno.push_back(5);
-        retorno.push_back(converterOperando(instrucao[1], tabela));
-        retorno.push_back(converterOperando(instrucao[2], tabela));
+        retorno.push_back(converterOperando(instrucao[1], tabela, linhaAtual));
+        retorno.push_back(converterOperando(instrucao[2], tabela, linhaAtual));
+        linhaAtual+=2;
         return retorno;
     }
 
     if(mnemonico == "PUSH") {
         retorno.push_back(6);
-        retorno.push_back(converterOperando(instrucao[1], tabela));
+        retorno.push_back(converterOperando(instrucao[1], tabela, linhaAtual));
+        linhaAtual+=2;
         return retorno;
     }
 
     if(mnemonico == "POP") {
         retorno.push_back(7);
-        retorno.push_back(converterOperando(instrucao[1], tabela));
+        retorno.push_back(converterOperando(instrucao[1], tabela, linhaAtual));
+        linhaAtual+=2;
         return retorno;
     }
 
     if(mnemonico == "ADD") {
         retorno.push_back(8);
-        retorno.push_back(converterOperando(instrucao[1], tabela));
-        retorno.push_back(converterOperando(instrucao[2], tabela));
+        retorno.push_back(converterOperando(instrucao[1], tabela, linhaAtual));
+        retorno.push_back(converterOperando(instrucao[2], tabela, linhaAtual));
+        linhaAtual+=3;
         return retorno;
     }
 
     if(mnemonico == "SUB") {
         retorno.push_back(9);
-        retorno.push_back(converterOperando(instrucao[1], tabela));
-        retorno.push_back(converterOperando(instrucao[2], tabela));
+        retorno.push_back(converterOperando(instrucao[1], tabela, linhaAtual));
+        retorno.push_back(converterOperando(instrucao[2], tabela, linhaAtual));
+        linhaAtual+=2;
         return retorno;
     }
 
     if(mnemonico == "MUL") {
         retorno.push_back(10);
-        retorno.push_back(converterOperando(instrucao[1], tabela));
-        retorno.push_back(converterOperando(instrucao[2], tabela));
+        retorno.push_back(converterOperando(instrucao[1], tabela, linhaAtual));
+        retorno.push_back(converterOperando(instrucao[2], tabela, linhaAtual));
+        linhaAtual+=3;
         return retorno;
     }
 
     if(mnemonico == "DIV") {
         retorno.push_back(11);
-        retorno.push_back(converterOperando(instrucao[1], tabela));
-        retorno.push_back(converterOperando(instrucao[2], tabela));
+        retorno.push_back(converterOperando(instrucao[1], tabela, linhaAtual));
+        retorno.push_back(converterOperando(instrucao[2], tabela, linhaAtual));
+        linhaAtual+=3;
         return retorno;
     }
 
     if(mnemonico == "MOD") {
         retorno.push_back(12);
-        retorno.push_back(converterOperando(instrucao[1], tabela));
-        retorno.push_back(converterOperando(instrucao[2], tabela));
+        retorno.push_back(converterOperando(instrucao[1], tabela, linhaAtual));
+        retorno.push_back(converterOperando(instrucao[2], tabela, linhaAtual));
+        linhaAtual+=3;
         return retorno;
     }
 
     if(mnemonico == "AND") {
         retorno.push_back(13);
-        retorno.push_back(converterOperando(instrucao[1], tabela));
-        retorno.push_back(converterOperando(instrucao[2], tabela));
+        retorno.push_back(converterOperando(instrucao[1], tabela, linhaAtual));
+        retorno.push_back(converterOperando(instrucao[2], tabela, linhaAtual));
+        linhaAtual+=3;
         return retorno;
     }
 
     if(mnemonico == "OR") {
         retorno.push_back(14);
-        retorno.push_back(converterOperando(instrucao[1], tabela));
-        retorno.push_back(converterOperando(instrucao[2], tabela));
+        retorno.push_back(converterOperando(instrucao[1], tabela, linhaAtual));
+        retorno.push_back(converterOperando(instrucao[2], tabela, linhaAtual));
+        linhaAtual+=3;
         return retorno;
     }
 
     if(mnemonico == "NOT") {
         retorno.push_back(15);
-        retorno.push_back(converterOperando(instrucao[1], tabela));
+        retorno.push_back(converterOperando(instrucao[1], tabela, linhaAtual));
+        linhaAtual+=2;
         return retorno;
     }
 
     if(mnemonico == "JUMP") {
         retorno.push_back(16);
-        retorno.push_back(converterOperando(instrucao[1], tabela));
+        retorno.push_back(converterOperando(instrucao[1], tabela, linhaAtual));
+        linhaAtual+=2;
         return retorno;
     }
 
     if(mnemonico == "JZ") {
         retorno.push_back(17);
-        retorno.push_back(converterOperando(instrucao[1], tabela));
+        retorno.push_back(converterOperando(instrucao[1], tabela, linhaAtual));
+        linhaAtual+=2;
         return retorno;
     }
 
     if(mnemonico == "JN") {
         retorno.push_back(18);
-        retorno.push_back(converterOperando(instrucao[1], tabela));
+        retorno.push_back(converterOperando(instrucao[1], tabela, linhaAtual));
+        linhaAtual+=2;
         return retorno;
     }
 
     if(mnemonico == "CALL") {
         retorno.push_back(19);
-        retorno.push_back(converterOperando(instrucao[1], tabela));
+        retorno.push_back(converterOperando(instrucao[1], tabela, linhaAtual));
+        linhaAtual+=2;
         return retorno;
     }
 
     if(mnemonico == "RET") {
+        linhaAtual+=1;
         return {20};
     }
+    linhaAtual+=1;
     // É uma constante
     return {stoi(mnemonico)};
 }

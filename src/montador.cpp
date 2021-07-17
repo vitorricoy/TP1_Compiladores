@@ -68,8 +68,9 @@ std::vector<int> Montador::executarPassoDois(std::vector<std::vector<std::string
         this->tabelaSimbolos.salvarSimbolo(constante.first, numeroInteiros+cont);
         cont++;
     }
+    int linhaAtual = 0;
     for(std::vector<std::string> linha : tokens) {
-        std::vector<int> codigoMaquina = Conversor::converterInstrucao(linha, this->tabelaSimbolos);
+        std::vector<int> codigoMaquina = Conversor::converterInstrucao(linha, this->tabelaSimbolos, linhaAtual);
         resultadoFinal.insert(resultadoFinal.end(), codigoMaquina.begin(), codigoMaquina.end());
     }
     for(std::pair<std::string, int> constante : this->constantes) {
