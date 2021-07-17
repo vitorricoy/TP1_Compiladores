@@ -1,5 +1,5 @@
-#ifndef LEITOR_ARQUIVOS_H
-#define LEITOR_ARQUIVOS_H
+#ifndef TABELA_SIMBOLOS_H
+#define TABELA_SIMBOLOS_H
 
 #include <string>
 #include <map>

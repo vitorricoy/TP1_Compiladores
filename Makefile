@@ -7,7 +7,7 @@ EXT = cpp
 # TODO: altere a lista de forma que contenha todos os arquivos .cpp
 #       do seu projeto (sem a extensão), que deve estar no diretório 
 #       src/
-SRCS_MONTADOR = $(patsubst %,%.$(EXT),main montador tabela_simbolos leitor_arquivos)
+SRCS_MONTADOR = $(patsubst %,%.$(EXT),main montador tabela_simbolos leitor_arquivos util)
 OBJS_MONTADOR = $(patsubst %,build/%.o,$(basename $(SRCS_MONTADOR)))
 
 ###############################################################################
