@@ -4,6 +4,7 @@
 
 #include "util.h"
 #include "montador.h"
+#include "conversor_instrucoes.h"
 
 Montador::Montador(std::string arquivoPrograma) {
     this->leitorArquivos = new LeitorArquivos(arquivoPrograma);
@@ -54,4 +55,15 @@ std::vector<int> Montador::executarPassoDois(std::vector<std::vector<std::string
         resultadoFinal.insert(resultadoFinal.end(), codigoMaquina.begin(), codigoMaquina.end());
     }
     return resultadoFinal;
+}
+
+std::string Montador::gerarPrograma(std::vector<int> instrucoes) {
+    string saida = "MV-EXE\n";
+    saida+=to_string(instrucoes.size());
+    saida+=" 0 999 0\n";
+    for(int inteiro : instrucoes) {
+        saida+=to_string(inteiro) + " ";
+    }
+    saida+= "\n";
+    return saida;
 }

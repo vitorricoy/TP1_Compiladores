@@ -3,7 +3,11 @@
 #include "montador.h"
 
 int main(int argc, char *argv[]) {
-    // TODO: executar o montador...
-    std::cout << "Hello World" << std::endl;
+    string arquivo = argv[1];
+    Montador montador(arquivo);
+    auto tokens = montador.executarPassoUm();
+    auto resultado = montador.executarPassoDois(tokens);
+    string programa = montador.gerarPrograma(resultado);
+    cout << programa;
     return 0;
 }

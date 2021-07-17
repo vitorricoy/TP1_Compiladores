@@ -12,8 +12,10 @@ class Montador {
         TabelaSimbolos tabelaSimbolos;
     public:
         void Montador(std::string arquivoPrograma);
-        std::vector<std::string> executarPassoUm();
-        void executarPassoDois();
+        std::vector<std::vector<std::string>> executarPassoUm();
+        std::vector<int> executarPassoDois(std::vector<std::vector<std::string>> tokens);
+        std::string gerarPrograma(std::vector<int> instrucoes);
+
 };
 
 #endif
