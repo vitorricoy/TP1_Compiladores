@@ -12,7 +12,7 @@ class Montador {
         TabelaSimbolos tabelaSimbolos;
     public:
         void Montador(std::string arquivoPrograma);
-        void executarPassoUm();
+        std::vector<std::string> executarPassoUm();
         void executarPassoDois();
 };
 
