@@ -1,3 +1,5 @@
+#include <iostream>
+
 #include "leitor_arquivos.h"
 
 LeitorArquivos::LeitorArquivos(std::string nomeArquivo) {

@@ -6,7 +6,7 @@
 
 class TabelaSimbolos {
     private:
-        map<string, int> tabela;
+        std::map<string, int> tabela;
     public:
         TabelaSimbolos();
 

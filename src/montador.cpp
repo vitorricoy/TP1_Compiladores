@@ -1,3 +1,5 @@
+#include <iostream>
+
 #include "montador.h"
 
 void Montador::executarPassoUm() {

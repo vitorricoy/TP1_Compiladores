@@ -1,6 +1,8 @@
 #ifndef MONTADOR_H
 #define MONTADOR_H
 
+#include <iostream>
+
 #include "leitor_arquivos.h"
 #include "tabela_simbolos.h"
 

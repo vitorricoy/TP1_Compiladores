@@ -6,7 +6,7 @@
 
 class LeitorArquivos {
     private:
-        ifstream arquivo;
+        std::ifstream arquivo;
     public:
         LeitorArquivos(std::string nomeArquivo);
 
