@@ -2,7 +2,7 @@
 
 #include "montador.h"
 
-void Montador::Montador(std::string arquivoPrograma) {
+Montador::Montador(std::string arquivoPrograma) {
     this->leitorArquivos = new LeitorArquivos(arquivoPrograma);
 }
 
@@ -10,6 +10,11 @@ void Montador::executarPassoUm() {
 
 }
 
-void Montador::executarPassoDois() {
-
+std::vector<int> Montador::executarPassoDois(std::vector<std::vector<std::string> > tokens) {
+    std::vector<int> resultadoFinal;
+    for(std::vector<std::string> linha : this->tokens) {
+        std::vector<int> codigoMaquina = Conversor::converterInstrucao(linha);
+        resultadoFinal.insert(resultadoFinal.end(), codigoMaquina.begin(), codigoMaquina.end());
+    }
+    return resultadoFinal;
 }
