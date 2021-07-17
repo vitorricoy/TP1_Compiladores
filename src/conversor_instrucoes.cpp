@@ -70,7 +70,7 @@ std::vector<int> Conversor::converterInstrucao(std::vector<std::string> instruca
         retorno.push_back(5);
         retorno.push_back(converterOperando(instrucao[1], tabela, linhaAtual));
         retorno.push_back(converterOperando(instrucao[2], tabela, linhaAtual));
-        linhaAtual+=2;
+        linhaAtual+=3;
         return retorno;
     }
 
@@ -100,7 +100,7 @@ std::vector<int> Conversor::converterInstrucao(std::vector<std::string> instruca
         retorno.push_back(9);
         retorno.push_back(converterOperando(instrucao[1], tabela, linhaAtual));
         retorno.push_back(converterOperando(instrucao[2], tabela, linhaAtual));
-        linhaAtual+=2;
+        linhaAtual+=3;
         return retorno;
     }
 
