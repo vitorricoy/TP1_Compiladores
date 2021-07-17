@@ -63,7 +63,7 @@ std::vector<int> Montador::executarPassoDois(std::vector<std::vector<std::string
     for(std::vector<std::string> instrucao : tokens) {
         numeroInteiros+=instrucao.size();
     }
-    int cont = 0;
+    int cont = 1;
     for(std::pair<std::string, int> constante : this->constantes) {
         this->tabelaSimbolos.salvarSimbolo(constante.first, numeroInteiros+cont);
         cont++;
