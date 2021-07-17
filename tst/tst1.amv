@@ -19,38 +19,34 @@ SUB R0 R1
 JN menor1 ; Se for negativo (R0 < R1)
 ADD R0 R1
 STORE R1 201
-menor1:
-STORE R0 201
+menor1: STORE R0 201
 COPY R0 R1
 
 LOAD R0 201
 LOAD R1 202
 SUB R0 R1
-JN menor1 ; Se for negativo (R0 < R1)
+JN menor2 ; Se for negativo (R0 < R1)
 ADD R0 R1
 STORE R1 202
-menor1:
-STORE R0 202
+menor2: STORE R0 202
 COPY R0 R1
 
 LOAD R0 202
 LOAD R1 203
 SUB R0 R1
-JN menor1 ; Se for negativo (R0 < R1)
+JN menor3 ; Se for negativo (R0 < R1)
 ADD R0 R1
 STORE R1 203
-menor1:
-STORE R0 203
+menor3: STORE R0 203
 COPY R0 R1
 
 LOAD R0 203
 LOAD R1 204
 SUB R0 R1
-JN menor1 ; Se for negativo (R0 < R1)
+JN menor4 ; Se for negativo (R0 < R1)
 ADD R0 R1
 STORE R1 204
-menor1:
-STORE R0 204
+menor4: STORE R0 204
 COPY R0 R1
 
 STORE R0 200
@@ -59,31 +55,28 @@ STORE R0 200
 LOAD R0 201
 LOAD R1 202
 SUB R0 R1
-JN menor1 ; Se for negativo (R0 < R1)
+JN menor5 ; Se for negativo (R0 < R1)
 ADD R0 R1
 STORE R1 202
-menor1:
-STORE R0 202
+menor5: STORE R0 202
 COPY R0 R1
 
 LOAD R0 202
 LOAD R1 203
 SUB R0 R1
-JN menor1 ; Se for negativo (R0 < R1)
+JN menor6 ; Se for negativo (R0 < R1)
 ADD R0 R1
 STORE R1 203
-menor1:
-STORE R0 203
+menor6: STORE R0 203
 COPY R0 R1
 
 LOAD R0 203
 LOAD R1 204
 SUB R0 R1
-JN menor1 ; Se for negativo (R0 < R1)
+JN menor7 ; Se for negativo (R0 < R1)
 ADD R0 R1
 STORE R1 204
-menor1:
-STORE R0 204
+menor7: STORE R0 204
 COPY R0 R1
 
 STORE R0 201
@@ -92,21 +85,19 @@ STORE R0 201
 LOAD R0 202
 LOAD R1 203
 SUB R0 R1
-JN menor1 ; Se for negativo (R0 < R1)
+JN menor8 ; Se for negativo (R0 < R1)
 ADD R0 R1
 STORE R1 203
-menor1:
-STORE R0 203
+menor8: STORE R0 203
 COPY R0 R1
 
 LOAD R0 203
 LOAD R1 204
 SUB R0 R1
-JN menor1 ; Se for negativo (R0 < R1)
+JN menor9 ; Se for negativo (R0 < R1)
 ADD R0 R1
 STORE R1 204
-menor1:
-STORE R0 204
+menor9: STORE R0 204
 COPY R0 R1
 
 STORE R0 202
@@ -116,11 +107,10 @@ STORE R0 202
 LOAD R0 203
 LOAD R1 204
 SUB R0 R1
-JN menor1 ; Se for negativo (R0 < R1)
+JN menor10 ; Se for negativo (R0 < R1)
 ADD R0 R1
 STORE R1 204
-menor1:
-STORE R0 204
+menor10: STORE R0 204
 COPY R0 R1
 
 STORE R0 203
