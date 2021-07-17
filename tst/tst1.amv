@@ -3,130 +3,130 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 READ R0             ; Lê o inteiro x1 e armazena no registrador 0
-STORE R0 100        ; Guarda x1 na memória
+STORE R0 200        ; Guarda x1 na memória
 READ R0             ; Lê o inteiro x2 e armazena no registrador 0
-STORE R0 101        ; Guarda x2 na memória
+STORE R0 201        ; Guarda x2 na memória
 READ R0             ; Lê o inteiro x3 e armazena no registrador 0
-STORE R0 102        ; Guarda x3 na memória
+STORE R0 202        ; Guarda x3 na memória
 READ R0             ; Lê o inteiro x4 e armazena no registrador 0
-STORE R0 103        ; Guarda x4 na memória
+STORE R0 203        ; Guarda x4 na memória
 READ R0             ; Lê o inteiro x5 e armazena no registrador 0
-STORE R0 104        ; Guarda x5 na memória
+STORE R0 204        ; Guarda x5 na memória
 
-LOAD R0 100
-LOAD R1 101
+LOAD R0 200
+LOAD R1 201
 SUB R0 R1
 JN menor1 ; Se for negativo (R0 < R1)
 ADD R0 R1
-STORE R1 101
+STORE R1 201
 menor1:
-STORE R0 101
+STORE R0 201
 COPY R0 R1
 
-LOAD R0 101
-LOAD R1 102
+LOAD R0 201
+LOAD R1 202
 SUB R0 R1
 JN menor1 ; Se for negativo (R0 < R1)
 ADD R0 R1
-STORE R1 102
+STORE R1 202
 menor1:
-STORE R0 102
+STORE R0 202
 COPY R0 R1
 
-LOAD R0 102
-LOAD R1 103
+LOAD R0 202
+LOAD R1 203
 SUB R0 R1
 JN menor1 ; Se for negativo (R0 < R1)
 ADD R0 R1
-STORE R1 103
+STORE R1 203
 menor1:
-STORE R0 103
+STORE R0 203
 COPY R0 R1
 
-LOAD R0 103
-LOAD R1 104
+LOAD R0 203
+LOAD R1 204
 SUB R0 R1
 JN menor1 ; Se for negativo (R0 < R1)
 ADD R0 R1
-STORE R1 104
+STORE R1 204
 menor1:
-STORE R0 104
+STORE R0 204
 COPY R0 R1
 
-STORE R0 100
+STORE R0 200
 
 ;;;;;;;;
-LOAD R0 101
-LOAD R1 102
+LOAD R0 201
+LOAD R1 202
 SUB R0 R1
 JN menor1 ; Se for negativo (R0 < R1)
 ADD R0 R1
-STORE R1 102
+STORE R1 202
 menor1:
-STORE R0 102
+STORE R0 202
 COPY R0 R1
 
-LOAD R0 102
-LOAD R1 103
+LOAD R0 202
+LOAD R1 203
 SUB R0 R1
 JN menor1 ; Se for negativo (R0 < R1)
 ADD R0 R1
-STORE R1 103
+STORE R1 203
 menor1:
-STORE R0 103
+STORE R0 203
 COPY R0 R1
 
-LOAD R0 103
-LOAD R1 104
+LOAD R0 203
+LOAD R1 204
 SUB R0 R1
 JN menor1 ; Se for negativo (R0 < R1)
 ADD R0 R1
-STORE R1 104
+STORE R1 204
 menor1:
-STORE R0 104
+STORE R0 204
 COPY R0 R1
 
-STORE R0 101
+STORE R0 201
 ;;;;;
 
-LOAD R0 102
-LOAD R1 103
+LOAD R0 202
+LOAD R1 203
 SUB R0 R1
 JN menor1 ; Se for negativo (R0 < R1)
 ADD R0 R1
-STORE R1 103
+STORE R1 203
 menor1:
-STORE R0 103
+STORE R0 203
 COPY R0 R1
 
-LOAD R0 103
-LOAD R1 104
+LOAD R0 203
+LOAD R1 204
 SUB R0 R1
 JN menor1 ; Se for negativo (R0 < R1)
 ADD R0 R1
-STORE R1 104
+STORE R1 204
 menor1:
-STORE R0 104
+STORE R0 204
 COPY R0 R1
 
-STORE R0 102
+STORE R0 202
 
 ;;;;
 
-LOAD R0 103
-LOAD R1 104
+LOAD R0 203
+LOAD R1 204
 SUB R0 R1
 JN menor1 ; Se for negativo (R0 < R1)
 ADD R0 R1
-STORE R1 104
+STORE R1 204
 menor1:
-STORE R0 104
+STORE R0 204
 COPY R0 R1
 
-STORE R0 103
+STORE R0 203
 ;;;;
 
-LOAD R0 103
+LOAD R0 203
 
 WRITE R0
 
