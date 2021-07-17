@@ -20,7 +20,8 @@ JN menor1 ; Se for negativo (R0 < R1)
 ADD R0 R1
 STORE R1 201
 JUMP saida1
-menor1: STORE R0 201
+menor1: ADD R0 R1
+STORE R0 201
 COPY R0 R1
 
 saida1: LOAD R0 201
@@ -30,7 +31,8 @@ JN menor2 ; Se for negativo (R0 < R1)
 ADD R0 R1
 STORE R1 202
 JUMP saida2
-menor2: STORE R0 202
+menor2: ADD R0 R1
+STORE R0 202
 COPY R0 R1
 
 saida2: LOAD R0 202
@@ -40,7 +42,8 @@ JN menor3 ; Se for negativo (R0 < R1)
 ADD R0 R1
 STORE R1 203
 JUMP saida3
-menor3: STORE R0 203
+menor3: ADD R0 R1
+STORE R0 203
 COPY R0 R1
 
 saida3: LOAD R0 203
@@ -50,7 +53,8 @@ JN menor4 ; Se for negativo (R0 < R1)
 ADD R0 R1
 STORE R1 204
 JUMP saida4
-menor4: STORE R0 204
+menor4: ADD R0 R1
+STORE R0 204
 COPY R0 R1
 
 saida4: STORE R0 200
@@ -63,7 +67,8 @@ JN menor5 ; Se for negativo (R0 < R1)
 ADD R0 R1
 STORE R1 202
 JUMP saida5
-menor5: STORE R0 202
+menor5: ADD R0 R1
+STORE R0 202
 COPY R0 R1
 
 saida5: LOAD R0 202
@@ -73,7 +78,8 @@ JN menor6 ; Se for negativo (R0 < R1)
 ADD R0 R1
 STORE R1 203
 JUMP saida6
-menor6: STORE R0 203
+menor6: ADD R0 R1
+STORE R0 203
 COPY R0 R1
 
 saida6: LOAD R0 203
@@ -83,7 +89,8 @@ JN menor7 ; Se for negativo (R0 < R1)
 ADD R0 R1
 STORE R1 204
 JUMP saida7
-menor7: STORE R0 204
+menor7: ADD R0 R1
+STORE R0 204
 COPY R0 R1
 
 saida7: STORE R0 201
@@ -96,7 +103,8 @@ JN menor8 ; Se for negativo (R0 < R1)
 ADD R0 R1
 STORE R1 203
 JUMP saida8
-menor8: STORE R0 203
+menor8: ADD R0 R1
+STORE R0 203
 COPY R0 R1
 
 saida8: LOAD R0 203
@@ -106,7 +114,8 @@ JN menor9 ; Se for negativo (R0 < R1)
 ADD R0 R1
 STORE R1 204
 JUMP saida9
-menor9: STORE R0 204
+menor9: ADD R0 R1
+STORE R0 204
 COPY R0 R1
 
 saida9: STORE R0 202
@@ -120,7 +129,8 @@ JN menor10 ; Se for negativo (R0 < R1)
 ADD R0 R1
 STORE R1 204
 JUMP saida10
-menor10: STORE R0 204
+menor10: ADD R0 R1
+STORE R0 204
 COPY R0 R1
 
 saida10: STORE R0 203
