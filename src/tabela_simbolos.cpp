@@ -14,3 +14,7 @@ int TabelaSimbolos::obterValorSimbolo(std::string simbolo) {
 void TabelaSimbolos::salvarSimbolo(std::string simbolo, int valor) {
     this->tabela[simbolo] = valor;
 }
+
+bool simboloEstaRegistrado(std::string simbolo) {
+    return this->tabela[simbolo].find(simbolo) != this->tabela.end();
+}

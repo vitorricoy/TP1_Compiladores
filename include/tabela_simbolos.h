@@ -12,6 +12,8 @@ class TabelaSimbolos {
 
         int obterValorSimbolo(std::string simbolo);
 
+        bool simboloEstaRegistrado(std::string simbolo);
+
         void salvarSimbolo(std::string simbolo, int valor);
 };
 

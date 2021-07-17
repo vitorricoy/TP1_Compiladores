@@ -4,7 +4,7 @@
 
 #include "conversor_instrucoes.h"
 
-int Conversor::converterOperando(std::string operando) {
+int Conversor::converterOperando(std::string operando, TabelaSimbolos& tabela) {
     if(operando == "R0") {
         return 0;
     }
@@ -21,10 +21,14 @@ int Conversor::converterOperando(std::string operando) {
         return 3;
     }
 
+    if(tabelaSimbolos.simboloEstaRegistrado(operando)) {
+        return tabelaSimbolos.obterValorSimbolo(operando);
+    }
+
     return stoi(operando); // Posição de memória
 }
 
-std::vector<int> Conversor::converterInstrucao(std::vector<std::string> instrucao) {
+std::vector<int> Conversor::converterInstrucao(std::vector<std::string> instrucao, TabelaSimbolos& tabela) {
     std::string mnemonico = instrucao[0];
     std::vector<int> retorno;
     if(mnemonico == "HALT") {
