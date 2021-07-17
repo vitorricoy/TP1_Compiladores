@@ -112,26 +112,6 @@ menor9: ADD R0 R1
 STORE R0 204
 COPY R0 R1
 
-saida9: STORE R0 202
-
-;;;;
-
-LOAD R0 203
-LOAD R1 204
-SUB R0 R1
-JN menor10 ; Se for negativo (R0 < R1)
-ADD R0 R1
-STORE R1 204
-JUMP saida10
-menor10: ADD R0 R1
-STORE R0 204
-COPY R0 R1
-
-saida10: STORE R0 203
-;;;;
-
-LOAD R0 202
-
 WRITE R0
 
 END
