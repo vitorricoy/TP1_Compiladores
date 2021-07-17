@@ -3,6 +3,7 @@
 #include <string>
 
 #include "conversor_instrucoes.h"
+#include "tabela_simbolos.h"
 
 int Conversor::converterOperando(std::string operando, TabelaSimbolos& tabela) {
     if(operando == "R0") {
