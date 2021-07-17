@@ -21,8 +21,8 @@ int Conversor::converterOperando(std::string operando, TabelaSimbolos& tabela) {
         return 3;
     }
 
-    if(tabelaSimbolos.simboloEstaRegistrado(operando)) {
-        return tabelaSimbolos.obterValorSimbolo(operando);
+    if(tabela.simboloEstaRegistrado(operando)) {
+        return tabela.obterValorSimbolo(operando);
     }
 
     return stoi(operando); // Posição de memória
