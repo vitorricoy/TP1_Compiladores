@@ -5,7 +5,7 @@
 #include "conversor_instrucoes.h"
 #include "tabela_simbolos.h"
 
-int Conversor::converterOperando(std::string operando, linhaAtual, TabelaSimbolos& tabela, int& linhaAtual) {
+int Conversor::converterOperando(std::string operando, TabelaSimbolos& tabela, int& linhaAtual) {
     if(operando == "R0") {
         return 0;
     }
