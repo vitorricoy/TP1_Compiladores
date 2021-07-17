@@ -30,10 +30,9 @@ std::vector<std::vector<std::string>> Montador::executarPassoUm() {
         if(palavras.empty()) {
             continue;
         }
-
         if(palavras[0].back() == ':') {
             if(palavras[1] == "WORD") {
-                this->constantes.push_back({palavras[0].substr(0, palavras[0].size()-1)}, std::stoi(palavras.back()))
+                this->constantes.push_back(std::make_pair(palavras[0].substr(0, palavras[0].size()-1), std::stoi(palavras.back())));
             } else {
                 tabelaSimbolos.salvarSimbolo(palavras[0].substr(0, palavras[0].size()-1), numeroLinha);
             }
@@ -66,7 +65,7 @@ std::vector<int> Montador::executarPassoDois(std::vector<std::vector<std::string
     }
     for(std::pair<std::string, int> constante : this->constantes) {
         this->tabelaSimbolos.salvarSimbolo(constante.first, resultadoFinal.size());
-        resultadoFinal.pb(constante.second);
+        resultadoFinal.push_back(constante.second);
     }
     return resultadoFinal;
 }
