@@ -52,7 +52,7 @@ std::vector<std::vector<std::string>> Montador::executarPassoUm() {
 std::vector<int> Montador::executarPassoDois(std::vector<std::vector<std::string> > tokens) {
     std::vector<int> resultadoFinal;
     for(std::vector<std::string> linha : tokens) {
-        std::vector<int> codigoMaquina = Conversor::converterInstrucao(linha);
+        std::vector<int> codigoMaquina = Conversor::converterInstrucao(linha, this->tabelaSimbolos);
         resultadoFinal.insert(resultadoFinal.end(), codigoMaquina.begin(), codigoMaquina.end());
     }
     return resultadoFinal;
