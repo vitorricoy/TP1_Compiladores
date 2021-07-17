@@ -10,4 +10,6 @@ std::string juntaPalavras(std::vector<std::string> linha);
 
 std::string removeComentario(std::string linha);
 
+int tamanhoInstrucao(std::string mnemonico);
+
 #endif

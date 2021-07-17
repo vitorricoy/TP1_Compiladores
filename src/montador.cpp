@@ -47,7 +47,7 @@ std::vector<std::vector<std::string>> Montador::executarPassoUm() {
             break;
         }
 
-        numeroLinha += 1;
+        numeroLinha += tamanhoInstrucao(palavras[0]);
         if(palavras[0] == "") {
             continue;
         }
