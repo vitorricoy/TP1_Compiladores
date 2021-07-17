@@ -25,7 +25,7 @@ int Conversor::converterOperando(std::string operando, TabelaSimbolos& tabela, i
     if(tabela.simboloEstaRegistrado(operando)) {
         return tabela.obterValorSimbolo(operando)-linhaAtual;
     }
-    return stoi(operando); // Posição de memória
+    return stoi(operando)-linhaAtual; // Posição de memória
 }
 
 std::vector<int> Conversor::converterInstrucao(std::vector<std::string> instrucao, TabelaSimbolos& tabela, int& linhaAtual) {
