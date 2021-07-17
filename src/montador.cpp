@@ -32,7 +32,6 @@ std::vector<std::vector<std::string>> Montador::executarPassoUm() {
         }
         if(palavras[0].back() == ':') {
             if(palavras[1] == "WORD") {
-                std::cout << palavras.back() << "\n";
                 this->constantes.push_back(std::make_pair(palavras[0].substr(0, palavras[0].size()-1), std::stoi(palavras.back())));
             } else {
                 tabelaSimbolos.salvarSimbolo(palavras[0].substr(0, palavras[0].size()-1), numeroLinha);
@@ -60,12 +59,20 @@ std::vector<std::vector<std::string>> Montador::executarPassoUm() {
 
 std::vector<int> Montador::executarPassoDois(std::vector<std::vector<std::string> > tokens) {
     std::vector<int> resultadoFinal;
+    int numeroInteiros = 0;
+    for(std::vector<std::string> instrucao : tokens) {
+        numeroInteiros+=instrucao.size();
+    }
+    int cont = 0;
+    for(std::pair<std::string, int> constante : this->constantes) {
+        this->tabelaSimbolos.salvarSimbolo(constante.first, numeroInteiros+cont);
+        cont++;
+    }
     for(std::vector<std::string> linha : tokens) {
         std::vector<int> codigoMaquina = Conversor::converterInstrucao(linha, this->tabelaSimbolos);
         resultadoFinal.insert(resultadoFinal.end(), codigoMaquina.begin(), codigoMaquina.end());
     }
     for(std::pair<std::string, int> constante : this->constantes) {
-        this->tabelaSimbolos.salvarSimbolo(constante.first, resultadoFinal.size());
         resultadoFinal.push_back(constante.second);
     }
     return resultadoFinal;
