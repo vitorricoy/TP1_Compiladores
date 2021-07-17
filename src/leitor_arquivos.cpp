@@ -9,5 +9,5 @@ bool LeitorArquivos::arquivoLidoAteFim() {
 }
 
 std::string LeitorArquivos::obterProximaLinha() {
-
+    
 }
