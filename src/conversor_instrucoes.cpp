@@ -25,7 +25,7 @@ int Conversor::converterOperando(std::string operando, TabelaSimbolos& tabela) {
     if(tabela.simboloEstaRegistrado(operando)) {
         return tabela.obterValorSimbolo(operando);
     }
-
+    std::cout << operando << "\n";
     return stoi(operando); // Posição de memória
 }
 
@@ -163,7 +163,7 @@ std::vector<int> Conversor::converterInstrucao(std::vector<std::string> instruca
     if(mnemonico == "RET") {
         return {20};
     }
-    
+    std::cout << mnemonico << "\n";
     // É uma constante
     return {stoi(mnemonico)};
 }
