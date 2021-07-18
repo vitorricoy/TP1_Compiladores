@@ -31,16 +31,20 @@ std::vector<std::vector<std::string>> Montador::executarPassoUm() {
             continue;
         }
         if(palavras[0].back() == ':') {
-            if(palavras[1] == "WORD") {
-                this->constantes.push_back(std::make_pair(palavras[0].substr(0, palavras[0].size()-1), std::stoi(palavras.back())));
-            } else {
-                tabelaSimbolos.salvarSimbolo(palavras[0].substr(0, palavras[0].size()-1), numeroLinha);
-            }
+            tabelaSimbolos.salvarSimbolo(palavras[0].substr(0, palavras[0].size()-1), numeroLinha);
             palavras.erase(palavras.begin());
+        } else {
+            if(palavras[0].find(':') != palavras[0].end()) {
+                int posDoisPontos = palavras[0].find(':') - palavras[0].begin();
+                string label = palavras[0].substr(0, posDoisPontos);
+                string mnemonico = palavras[0].substr(posDoisPontos+1, palavras[0].size()-posDoisPontos-1);
+                tabelaSimbolos.salvarSimbolo(label, numeroLinha);
+                palavras[0] = mnemonico;
+            }
         }
 
         if(palavras[0] == "WORD") {
-            continue;
+            palavras.erase(palavras.begin());
         }
         
         if(palavras[0] == "END") {
@@ -48,6 +52,7 @@ std::vector<std::vector<std::string>> Montador::executarPassoUm() {
         }
 
         numeroLinha += tamanhoInstrucao(palavras[0]);
+
         if(palavras[0] == "") {
             continue;
         }
@@ -59,22 +64,10 @@ std::vector<std::vector<std::string>> Montador::executarPassoUm() {
 
 std::vector<int> Montador::executarPassoDois(std::vector<std::vector<std::string> > tokens) {
     std::vector<int> resultadoFinal;
-    int numeroInteiros = 0;
-    for(std::vector<std::string> instrucao : tokens) {
-        numeroInteiros+=instrucao.size();
-    }
-    int cont = 0;
-    for(std::pair<std::string, int> constante : this->constantes) {
-        this->tabelaSimbolos.salvarSimbolo(constante.first, numeroInteiros+cont);
-        cont++;
-    }
     int linhaAtual = 0;
     for(std::vector<std::string> linha : tokens) {
         std::vector<int> codigoMaquina = Conversor::converterInstrucao(linha, this->tabelaSimbolos, linhaAtual);
         resultadoFinal.insert(resultadoFinal.end(), codigoMaquina.begin(), codigoMaquina.end());
-    }
-    for(std::pair<std::string, int> constante : this->constantes) {
-        resultadoFinal.push_back(constante.second);
     }
     return resultadoFinal;
 }
