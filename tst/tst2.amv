@@ -3,6 +3,8 @@
 ;;;;;;; n-ésimo número de Fibonacci                      ;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+const1: WORD 1
+const0: WORD 0
 READ R0             ; Lê o inteiro n e armazena no registrador 0
 LOAD R1 const0      ; Carrega 0 no registrador R1
 LOAD R2 const1      ; Carrega 1 no registrador R2
@@ -22,8 +24,5 @@ JUMP loop           ; Retorna ao loop caso n seja diferente de zero
 
 nIgualAZero: WRITE R1 ; Escreve o resultado
 HALT                  ; Finaliza a execução do programa
-
-const1: WORD 1
-const0: WORD 0
 END
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
