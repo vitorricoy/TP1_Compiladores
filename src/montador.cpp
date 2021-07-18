@@ -34,10 +34,10 @@ std::vector<std::vector<std::string>> Montador::executarPassoUm() {
             tabelaSimbolos.salvarSimbolo(palavras[0].substr(0, palavras[0].size()-1), numeroLinha);
             palavras.erase(palavras.begin());
         } else {
-            if(palavras[0].find(':') != palavras[0].end()) {
-                int posDoisPontos = palavras[0].find(':') - palavras[0].begin();
-                string label = palavras[0].substr(0, posDoisPontos);
-                string mnemonico = palavras[0].substr(posDoisPontos+1, palavras[0].size()-posDoisPontos-1);
+            if(palavras[0].find(':') != std::string::npos) {
+                int posDoisPontos = palavras[0].find(':');
+                std::string label = palavras[0].substr(0, posDoisPontos);
+                std::string mnemonico = palavras[0].substr(posDoisPontos+1, palavras[0].size()-posDoisPontos-1);
                 tabelaSimbolos.salvarSimbolo(label, numeroLinha);
                 palavras[0] = mnemonico;
             }
