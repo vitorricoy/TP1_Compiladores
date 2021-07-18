@@ -13,6 +13,7 @@ class Montador {
         LeitorArquivos leitorArquivos;
         TabelaSimbolos tabelaSimbolos;
         std::vector<std::pair<std::string, int> > constantes;
+        int constantesInicio;
     public:
         Montador(std::string arquivoPrograma);
         std::vector<std::vector<std::string>> executarPassoUm();

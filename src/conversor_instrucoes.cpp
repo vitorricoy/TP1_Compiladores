@@ -28,7 +28,7 @@ int Conversor::converterOperando(std::string operando, TabelaSimbolos& tabela, i
     return stoi(operando)-linhaAtual; // Posição de memória
 }
 
-std::vector<int> Conversor::converterInstrucao(std::vector<std::string> instrucao, TabelaSimbolos& tabela, int& linhaAtual) {
+std::vector<int> Conversor::converterInstrucao(std::vector<std::string> instrucao, TabelaSimbolos& tabela, int& linhaAtual, int& constantesInicio) {
     std::string mnemonico = instrucao[0];
     std::vector<int> retorno;
     if(mnemonico == "HALT") {
@@ -185,5 +185,6 @@ std::vector<int> Conversor::converterInstrucao(std::vector<std::string> instruca
     }
     linhaAtual+=1;
     // É uma constante
+    constantesInicio++;
     return {stoi(mnemonico)};
 }

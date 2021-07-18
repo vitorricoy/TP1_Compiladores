@@ -65,8 +65,13 @@ std::vector<std::vector<std::string>> Montador::executarPassoUm() {
 std::vector<int> Montador::executarPassoDois(std::vector<std::vector<std::string> > tokens) {
     std::vector<int> resultadoFinal;
     int linhaAtual = 0;
+    int constantesInicioAux = 0; // Identificar quantas constantes existem no inicio do programa
     for(std::vector<std::string> linha : tokens) {
-        std::vector<int> codigoMaquina = Conversor::converterInstrucao(linha, this->tabelaSimbolos, linhaAtual);
+        int constantesInicioAntiga = constantesInicioAux;
+        std::vector<int> codigoMaquina = Conversor::converterInstrucao(linha, this->tabelaSimbolos, linhaAtual, constantesInicioAux);
+        if(constantesInicioAntiga == constantesInicioAux) { // Se acabaram as constantes no começo do programa
+            this->constantesInicio = constantesInicioAntiga; // Salva o numero de constantes no inicio
+        }
         resultadoFinal.insert(resultadoFinal.end(), codigoMaquina.begin(), codigoMaquina.end());
     }
     return resultadoFinal;
@@ -75,7 +80,8 @@ std::vector<int> Montador::executarPassoDois(std::vector<std::vector<std::string
 std::string Montador::gerarPrograma(std::vector<int> instrucoes) {
     std::string saida = "MV-EXE\n";
     saida+=std::to_string(instrucoes.size());
-    saida+=" 0 999 0\n";
+    saida+=" 0 999 ";
+    saida+=std::to_string(this->constantesInicio) + "\n";
     for(int inteiro : instrucoes) {
         saida+=std::to_string(inteiro) + " ";
     }
