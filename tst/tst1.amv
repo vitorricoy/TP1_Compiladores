@@ -13,107 +13,120 @@ STORE R0 var4       ; Guarda x4 na memória
 READ R0             ; Lê o inteiro x5 e armazena no registrador 0
 STORE R0 var5       ; Guarda x5 na memória
 
-LOAD R0 var1
-LOAD R1 var2
-SUB R0 R1
-JN menor1 ; Se for negativo (R0 < R1)
-ADD R0 R1
-STORE R1 var2
-JUMP saida1
-menor1: ADD R0 R1
-STORE R0 var2
-COPY R0 R1
+LOAD R0 var1        ; Carrega a primeira variável da memória
+LOAD R1 var2        ; Carrega a segunda variável da memória
+SUB R0 R1           ; Subtrai o valor das duas variáveis para determinar qual a maior
+JN menor1           ; Se for negativo (R0 < R1) pula para o label correspondente
+ADD R0 R1           ; Adiciona o valor subtraído de R0 para ele voltar a ser igual seu valor original
+STORE R1 var2       ; Salva o valor da menor variável no endereço da segunda variável
+JUMP saida1         ; Pula o trecho correspondente a R0 < R1
+menor1: ADD R0 R1   ; Adiciona o valor subtraído de R0 para ele voltar a ser igual seu valor original
+STORE R0 var2       ; Salva o valor da menor variável no endereço da segunda variável
+COPY R0 R1          ; Coloca o valor da maior variável em R0 
 
-saida1: LOAD R1 var3
-SUB R0 R1
-JN menor2 ; Se for negativo (R0 < R1)
-ADD R0 R1
-STORE R1 var3
-JUMP saida2
-menor2: ADD R0 R1
-STORE R0 var3
-COPY R0 R1
+saida1: LOAD R1 var3; Carrega a terceira variável da memória
+SUB R0 R1           ; Subtrai o valor das duas variáveis para determinar qual a maior
+JN menor2           ; Se for negativo (R0 < R1) pula para o label correspondente
+ADD R0 R1           ; Adiciona o valor subtraído de R0 para ele voltar a ser igual seu valor original
+STORE R1 var3       ; Salva o valor da menor variável no endereço da terceira variável
+JUMP saida2         ; Pula o trecho correspondente a R0 < R1
+menor2: ADD R0 R1   ; Adiciona o valor subtraído de R0 para ele voltar a ser igual seu valor original
+STORE R0 var3       ; Salva o valor da menor variável no endereço da terceira variável
+COPY R0 R1          ; Coloca o valor da maior variável em R0
 
-saida2: LOAD R1 var4
-SUB R0 R1
-JN menor3 ; Se for negativo (R0 < R1)
-ADD R0 R1
-STORE R1 var4
-JUMP saida3
-menor3: ADD R0 R1
-STORE R0 var4
-COPY R0 R1
+saida2: LOAD R1 var4; Carrega a quarta variável da memória
+SUB R0 R1           ; Subtrai o valor das duas variáveis para determinar qual a maior
+JN menor3           ; Se for negativo (R0 < R1) pula para o label correspondente
+ADD R0 R1           ; Adiciona o valor subtraído de R0 para ele voltar a ser igual seu valor original
+STORE R1 var4       ; Salva o valor da menor variável no endereço da quarta variável
+JUMP saida3         ; Pula o trecho correspondente a R0 < R1
+menor3: ADD R0 R1   ; Adiciona o valor subtraído de R0 para ele voltar a ser igual seu valor original
+STORE R0 var4       ; Salva o valor da menor variável no endereço da quarta variável
+COPY R0 R1          ; Coloca o valor da maior variável em R0
 
-saida3: LOAD R1 var5
-SUB R0 R1
-JN menor4 ; Se for negativo (R0 < R1)
-ADD R0 R1
-STORE R1 var5
-JUMP saida4
-menor4: ADD R0 R1
-STORE R0 var5
-COPY R0 R1
+saida3: LOAD R1 var5; Carrega a quinta variável da memória
+SUB R0 R1           ; Subtrai o valor das duas variáveis para determinar qual a maior
+JN menor4           ; Se for negativo (R0 < R1) pula para o label correspondente
+ADD R0 R1           ; Adiciona o valor subtraído de R0 para ele voltar a ser igual seu valor original
+STORE R1 var5       ; Salva o valor da menor variável no endereço da quinta variável
+JUMP saida4         ; Pula o trecho correspondente a R0 < R1
+menor4: ADD R0 R1   ; Adiciona o valor subtraído de R0 para ele voltar a ser igual seu valor original
+STORE R0 var5       ; Salva o valor da menor variável no endereço da quinta variável
+COPY R0 R1          ; Coloca o valor da maior variável em R0
 
-saida4: STORE R0 var1
+saida4: STORE R0 var1; Guarda o valor de R0, que é o maior valor dado, na primeira variável
 
-;;;;;;;;
-LOAD R0 var2
-LOAD R1 var3
-SUB R0 R1
-JN menor5 ; Se for negativo (R0 < R1)
-ADD R0 R1
-STORE R1 var3
-JUMP saida5
-menor5: ADD R0 R1
-STORE R0 var3
-COPY R0 R1
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; trecho para encontrar o segundo maior valor ;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-saida5: LOAD R1 var4
-SUB R0 R1
-JN menor6 ; Se for negativo (R0 < R1)
-ADD R0 R1
-STORE R1 var4
-JUMP saida6
-menor6: ADD R0 R1
-STORE R0 var4
-COPY R0 R1
+LOAD R0 var2        ; Carrega a segunda variável da memória
+LOAD R1 var3        ; Carrega a terceira variável da memória
+SUB R0 R1           ; Subtrai o valor das duas variáveis para determinar qual a maior
+JN menor5           ; Se for negativo (R0 < R1) pula para o label correspondente
+ADD R0 R1           ; Adiciona o valor subtraído de R0 para ele voltar a ser igual seu valor original
+STORE R1 var3       ; Salva o valor da menor variável no endereço da terceira variável
+JUMP saida5         ; Pula o trecho correspondente a R0 < R1
+menor5: ADD R0 R1   ; Adiciona o valor subtraído de R0 para ele voltar a ser igual seu valor original
+STORE R0 var3       ; Salva o valor da menor variável no endereço da terceira variável
+COPY R0 R1          ; Coloca o valor da maior variável em R0
 
-saida6: LOAD R1 var5
-SUB R0 R1
-JN menor7 ; Se for negativo (R0 < R1)
-ADD R0 R1
-STORE R1 var5
-JUMP saida7
-menor7: ADD R0 R1
-STORE R0 var5
-COPY R0 R1
+saida5: LOAD R1 var4; Carrega a quarta variável da memória
+SUB R0 R1           ; Subtrai o valor das duas variáveis para determinar qual a maior
+JN menor6           ; Se for negativo (R0 < R1) pula para o label correspondente
+ADD R0 R1           ; Adiciona o valor subtraído de R0 para ele voltar a ser igual seu valor original
+STORE R1 var4       ; Salva o valor da menor variável no endereço da quarta variável
+JUMP saida6         ; Pula o trecho correspondente a R0 < R1
+menor6: ADD R0 R1   ; Adiciona o valor subtraído de R0 para ele voltar a ser igual seu valor original
+STORE R0 var4       ; Salva o valor da menor variável no endereço da terceira variável
+COPY R0 R1          ; Coloca o valor da maior variável em R0
 
-saida7: STORE R0 var2
-;;;;;
+saida6: LOAD R1 var5; Carrega a quinta variável da memória
+SUB R0 R1           ; Subtrai o valor das duas variáveis para determinar qual a maior
+JN menor7           ; Se for negativo (R0 < R1) pula para o label correspondente
+ADD R0 R1           ; Adiciona o valor subtraído de R0 para ele voltar a ser igual seu valor original
+STORE R1 var5       ; Salva o valor da menor variável no endereço da quinta variável
+JUMP saida7         ; Pula o trecho correspondente a R0 < R1
+menor7: ADD R0 R1   ; Adiciona o valor subtraído de R0 para ele voltar a ser igual seu valor original
+STORE R0 var5       ; Salva o valor da menor variável no endereço da quinta variável
+COPY R0 R1          ; Coloca o valor da maior variável em R0
 
-LOAD R0 var3
-LOAD R1 var4
-SUB R0 R1
-JN menor8 ; Se for negativo (R0 < R1)
-ADD R0 R1
-STORE R1 var4
-JUMP saida8
-menor8: ADD R0 R1
-STORE R0 var4
-COPY R0 R1
+saida7: STORE R0 var2; Guarda o valor de R0, que é o segundo maior valor dado, na segunda variável
 
-saida8: LOAD R1 var5
-SUB R0 R1
-JN menor9 ; Se for negativo (R0 < R1)
-ADD R0 R1
-STORE R1 var5
-JUMP saida9
-menor9: ADD R0 R1
-STORE R0 var5
-COPY R0 R1
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; trecho para encontrar o terceiro maior valor ;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-saida9: WRITE R0
-HALT
+LOAD R0 var3        ; Carrega a terceira variável da memória
+LOAD R1 var4        ; Carrega a quarta variável da memória
+SUB R0 R1           ; Subtrai o valor das duas variáveis para determinar qual a maior
+JN menor8           ; Se for negativo (R0 < R1) pula para o label correspondente
+ADD R0 R1           ; Adiciona o valor subtraído de R0 para ele voltar a ser igual seu valor original
+STORE R1 var4       ; Salva o valor da menor variável no endereço da quarta variável
+JUMP saida8         ; Pula o trecho correspondente a R0 < R1
+menor8: ADD R0 R1   ; Adiciona o valor subtraído de R0 para ele voltar a ser igual seu valor original
+STORE R0 var4       ; Salva o valor da menor variável no endereço da quarta variável
+COPY R0 R1          ; Coloca o valor da maior variável em R0
+
+saida8: LOAD R1 var5; Carrega a quinta variável da memória
+SUB R0 R1           ; Subtrai o valor das duas variáveis para determinar qual a maior
+JN menor9           ; Se for negativo (R0 < R1) pula para o label correspondente
+ADD R0 R1           ; Adiciona o valor subtraído de R0 para ele voltar a ser igual seu valor original
+STORE R1 var5       ; Salva o valor da menor variável no endereço da quinta variável
+JUMP saida9         ; Pula o trecho correspondente a R0 < R1
+menor9: ADD R0 R1   ; Adiciona o valor subtraído de R0 para ele voltar a ser igual seu valor original
+STORE R0 var5       ; Salva o valor da menor variável no endereço da quinta variável
+COPY R0 R1          ; Coloca o valor da maior variável em R0
+
+saida9: WRITE R0    ; Imprime o valor de R0, que é o terceiro maior valor dado, o que é equivalente
+                    ; a dizer que R0 é a mediana
+
+HALT                ; Encerra o programa
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; declaração das variáveis na memória ;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 var1: WORD 0
 var2: WORD 0
 var3: WORD 0
