@@ -6,6 +6,7 @@
 #include "tabela_simbolos.h"
 
 int Conversor::converterOperando(std::string operando, TabelaSimbolos& tabela, int& linhaAtual) {
+    // Verifica se o operando é um registrador
     if(operando == "R0") {
         return 0;
     }
@@ -22,15 +23,24 @@ int Conversor::converterOperando(std::string operando, TabelaSimbolos& tabela, i
         return 3;
     }
 
+    // Verifica se o operando é um label válido
     if(tabela.simboloEstaRegistrado(operando)) {
         return tabela.obterValorSimbolo(operando)-linhaAtual;
     }
-    return stoi(operando); // Posição de memória
+
+    // O operando é uma posição de memória
+    return stoi(operando);
 }
 
-std::vector<int> Conversor::converterInstrucao(std::vector<std::string> instrucao, TabelaSimbolos& tabela, int& linhaAtual, int& constantesInicio) {
+std::vector<int> Conversor::converterInstrucao(std::vector<std::string> instrucao, TabelaSimbolos& tabela, int& linhaAtual, int& constantesVistas) {
+    // Salva o mnemonico da instrução
     std::string mnemonico = instrucao[0];
+    // Vetor para salvar os inteiros correspondentes à instrução
     std::vector<int> retorno;
+    
+    // Verifica cada uma das operações e atualiza o contador de linhas,
+    // assim como retorna os inteiros correspondentes
+
     if(mnemonico == "HALT") {
         linhaAtual+=1;
         return {0};
@@ -183,8 +193,10 @@ std::vector<int> Conversor::converterInstrucao(std::vector<std::string> instruca
         linhaAtual+=1;
         return {20};
     }
+
+    // Caso a instrução não corresponda a nenhuma operação, 
+    // ela é uma constante criada por um WORD
     linhaAtual+=1;
-    // É uma constante
-    constantesInicio++;
+    constantesVistas++; // Incrementa o contador de constantes vistas
     return {stoi(mnemonico)};
 }
