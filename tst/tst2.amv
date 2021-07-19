@@ -15,7 +15,7 @@ JZ nIgualAZero      ; Se o resultado da soma for 0, n é zero
 
 LOAD R3 const1      ; Carrega 1 no registrador R3
 
-loop: PUSH R2       ; Salva o valor de R2 na pilha
+loop:  PUSH R2      ; Salva o valor de R2 na pilha
 ADD R2 R1           ; Soma R1 em R2
 POP R1              ; Salva em R1 o antigo valor de R2
 SUB R0 R3           ; Subtrai 1 de n
