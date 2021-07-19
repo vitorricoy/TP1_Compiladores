@@ -3,116 +3,122 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 READ R0             ; Lê o inteiro x1 e armazena no registrador 0
-STORE R0 500        ; Guarda x1 na memória
+STORE R0 var1       ; Guarda x1 na memória
 READ R0             ; Lê o inteiro x2 e armazena no registrador 0
-STORE R0 501        ; Guarda x2 na memória
+STORE R0 var2       ; Guarda x2 na memória
 READ R0             ; Lê o inteiro x3 e armazena no registrador 0
-STORE R0 502        ; Guarda x3 na memória
+STORE R0 var3       ; Guarda x3 na memória
 READ R0             ; Lê o inteiro x4 e armazena no registrador 0
-STORE R0 503        ; Guarda x4 na memória
+STORE R0 var4       ; Guarda x4 na memória
 READ R0             ; Lê o inteiro x5 e armazena no registrador 0
-STORE R0 504        ; Guarda x5 na memória
+STORE R0 var5       ; Guarda x5 na memória
 
-LOAD R0 500
-LOAD R1 501
+LOAD R0 var1
+LOAD R1 var2
 SUB R0 R1
 JN menor1 ; Se for negativo (R0 < R1)
 ADD R0 R1
-STORE R1 501
+STORE R1 var2
 JUMP saida1
 menor1: ADD R0 R1
-STORE R0 501
+STORE R0 var2
 COPY R0 R1
 
-saida1: LOAD R1 502
+saida1: LOAD R1 var3
 SUB R0 R1
 JN menor2 ; Se for negativo (R0 < R1)
 ADD R0 R1
-STORE R1 502
+STORE R1 var3
 JUMP saida2
 menor2: ADD R0 R1
-STORE R0 502
+STORE R0 var3
 COPY R0 R1
 
-saida2: LOAD R1 503
+saida2: LOAD R1 var4
 SUB R0 R1
 JN menor3 ; Se for negativo (R0 < R1)
 ADD R0 R1
-STORE R1 503
+STORE R1 var4
 JUMP saida3
 menor3: ADD R0 R1
-STORE R0 503
+STORE R0 var4
 COPY R0 R1
 
-saida3: LOAD R1 504
-SUB R0 R1
+saida3: LOAD R1 var5
+SUB R0R1
 JN menor4 ; Se for negativo (R0 < R1)
 ADD R0 R1
-STORE R1 504
-JUMP saida4
+STORE R1 var5
+JUMP sida4
 menor4: ADD R0 R1
-STORE R0 504
-COPY R0 R1
+STORE R0 var5
+COPY R R1
 
-saida4: STORE R0 500
+saida4: STORE R0 var1
 
 ;;;;;;;;
-LOAD R0 501
-LOAD R1 502
+LOAD R0 var2
+LOAD R1 var3
 SUB R0 R1
 JN menor5 ; Se for negativo (R0 < R1)
 ADD R0 R1
-STORE R1 502
+STORE R1 var3
 JUMP saida5
 menor5: ADD R0 R1
-STORE R0 502
+STORE R0 var3
 COPY R0 R1
 
-saida5: LOAD R1 503
+saida5: LOAD R1 var4
 SUB R0 R1
 JN menor6 ; Se for negativo (R0 < R1)
 ADD R0 R1
-STORE R1 503
+STORE R1 var4
 JUMP saida6
 menor6: ADD R0 R1
-STORE R0 503
+STORE R0 var4
 COPY R0 R1
 
-saida6: LOAD R1 504
-SUB R0 R1
+saida6: LOAD R1 var5
+SUB R0R1
 JN menor7 ; Se for negativo (R0 < R1)
 ADD R0 R1
-STORE R1 504
-JUMP saida7
+STORE R1 var5
+JUMP sida7
 menor7: ADD R0 R1
-STORE R0 504
-COPY R0 R1
+STORE R0 var5
+COPY R R1
 
-saida7: STORE R0 501
+saida7: STORE R0 var2
 ;;;;;
 
-LOAD R0 502
-LOAD R1 503
+LOAD R0 var3
+LOAD R1 var4
 SUB R0 R1
 JN menor8 ; Se for negativo (R0 < R1)
 ADD R0 R1
-STORE R1 503
+STORE R1 var4
 JUMP saida8
 menor8: ADD R0 R1
-STORE R0 503
+STORE R0 var4
 COPY R0 R1
 
-saida8: LOAD R1 504
-SUB R0 R1
+saida8: LOAD R1 var5
+SUB R0R1
 JN menor9 ; Se for negativo (R0 < R1)
 ADD R0 R1
-STORE R1 504
-JUMP saida9
+STORE R1 var5
+JUMP sida9
 menor9: ADD R0 R1
-STORE R0 504
-COPY R0 R1
+STORE R0 var5
+COPY R R1
 
 saida9: WRITE R0
+HALT
+var1: WORD 0
+var2: WORD 0
+var3: WORD 0
+var4: WORD 0
+var5: WORD 0
 
 END
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
