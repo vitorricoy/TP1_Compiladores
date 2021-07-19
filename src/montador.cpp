@@ -72,7 +72,8 @@ std::vector<int> Montador::executarPassoDois(std::vector<std::vector<std::string
 std::string Montador::gerarPrograma(std::vector<int> instrucoes) {
     std::string saida = "MV-EXE\n";
     saida+=std::to_string(instrucoes.size());
-    saida+=" 0 1000 ";
+    saida+=" 0 ";
+    saida+=std::to_string(instrucoes.size()+1000)  + " ";
     saida+=std::to_string(this->constantesInicio) + "\n";
     for(int inteiro : instrucoes) {
         saida+=std::to_string(inteiro) + " ";
