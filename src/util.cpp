@@ -46,5 +46,5 @@ int tamanhoInstrucao(std::string mnemonico) {
         return 2;
     }
 
-    return 0;
+    return 1;
 }
