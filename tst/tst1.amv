@@ -45,14 +45,14 @@ STORE R0 var4
 COPY R0 R1
 
 saida3: LOAD R1 var5
-SUB R0R1
+SUB R0 R1
 JN menor4 ; Se for negativo (R0 < R1)
 ADD R0 R1
 STORE R1 var5
-JUMP sida4
+JUMP saida4
 menor4: ADD R0 R1
 STORE R0 var5
-COPY R R1
+COPY R0 R1
 
 saida4: STORE R0 var1
 
@@ -79,14 +79,14 @@ STORE R0 var4
 COPY R0 R1
 
 saida6: LOAD R1 var5
-SUB R0R1
+SUB R0 R1
 JN menor7 ; Se for negativo (R0 < R1)
 ADD R0 R1
 STORE R1 var5
-JUMP sida7
+JUMP saida7
 menor7: ADD R0 R1
 STORE R0 var5
-COPY R R1
+COPY R0 R1
 
 saida7: STORE R0 var2
 ;;;;;
@@ -103,14 +103,14 @@ STORE R0 var4
 COPY R0 R1
 
 saida8: LOAD R1 var5
-SUB R0R1
+SUB R0 R1
 JN menor9 ; Se for negativo (R0 < R1)
 ADD R0 R1
 STORE R1 var5
-JUMP sida9
+JUMP saida9
 menor9: ADD R0 R1
 STORE R0 var5
-COPY R R1
+COPY R0 R1
 
 saida9: WRITE R0
 HALT
